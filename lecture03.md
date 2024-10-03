@@ -6,12 +6,12 @@
 
 <img width="1280" alt="スクリーンショット 2022-10-19 22 40 13" src="https://user-images.githubusercontent.com/102453302/196717253-4eb952f5-e65f-4521-96dd-9870a44e4657.png">
 
-　## APサーバー終了時
+## APサーバー終了時
  
  <img width="1279" alt="スクリーンショット 2022-10-19 22 38 31" src="https://user-images.githubusercontent.com/102453302/196717711-f90b939f-757c-43e5-8049-5df8a0d2509a.png">
 
 
-　## DB サーバー終了時
+## DB サーバー終了時
   
 - [参考サイト](https://26gram.com/start-stop-mysql)
   
