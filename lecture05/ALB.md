@@ -28,3 +28,6 @@ https://zenn.dev/tikka/articles/6109990725a0f417d058
 # エラー解消
 設定後にnginxとunicornを再起動してみたらhealthyとなり解消した
 *再起動をしないでエラーコードを延々調べて時間を要してしまった。
+
+
+lecture05_ELB追加.md
