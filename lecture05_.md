@@ -18,6 +18,9 @@
 #### ブラウザで確認する際はchromeのデベロッパーツールも参考になった。
 
 
+#### 他セクションの課題まとめ(ALB、S3、組み込みサーバー動作、nginx等)
+[lecture05_セクション毎の課題まとめファイル](https://github.com/yuhei1012/RaiseTech_summary/blob/47790a59817f1fc7bf439616cb502eddb9b147e8/lecture05/Sectionfile/section.md)
+
 
 総括
 
