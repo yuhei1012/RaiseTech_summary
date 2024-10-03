@@ -2,9 +2,7 @@
 
 ## サンプルアプリケーション起動
 
-# ↓サンプルコード
-
-https://github.com/yuta-ushijima/raisetech-live8-sample-app
+#### [サンプルコード](https://github.com/yuta-ushijima/raisetech-live8-sample-app)
 
 <img width="1280" alt="スクリーンショット 2022-10-19 22 40 13" src="https://user-images.githubusercontent.com/102453302/196717253-4eb952f5-e65f-4521-96dd-9870a44e4657.png">
 
@@ -15,7 +13,7 @@ https://github.com/yuta-ushijima/raisetech-live8-sample-app
 
 　## DB サーバー終了時
   
--参考サイト:https://26gram.com/start-stop-mysql
+- [参考サイト](https://26gram.com/start-stop-mysql)
   
 <img width="1275" alt="スクリーンショット 2022-10-19 22 13 09" src="https://user-images.githubusercontent.com/102453302/196718017-d333c187-612f-4920-b427-1ddc48a7b2d2.png">
 
