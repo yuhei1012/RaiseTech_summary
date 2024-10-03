@@ -7,12 +7,12 @@
 ## その他第5回課題で参考にしたサイト
 
 ### tail コマンド(リアルタイムでlogを確認する時に使用)
-#### https://www.aura-office.co.jp/blog/tail/
-####  https://did2memo.net/2013/04/23/how-to-pause-tail-f/
+- [tailコマンド参照サイト](https://www.aura-office.co.jp/blog/tail/)
+- [tailコマンド参照サイト2](https://did2memo.net/2013/04/23/how-to-pause-tail-f/)
 
 
 ### rm・mvコマンド　(ファイルの削除・名前の変更)
-####  https://atmarkit.itmedia.co.jp/ait/articles/1606/06/news013.html
+- [rm・mvコマンド参照サイト](https://atmarkit.itmedia.co.jp/ait/articles/1606/06/news013.html)
 
 
 #### ブラウザで確認する際はchromeのデベロッパーツールも参考になった。
