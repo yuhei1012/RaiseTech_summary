@@ -1,1 +1,1 @@
-[ALBについて](https://github.com/yuhei1012/RaiseTech_summary/blob/1e5a1de4080787e78ba4687c3b9540e6987ceb9a/lecture05_ELB%E8%BF%BD%E5%8A%A0.md)
+[lecture05_ALB.md](https://github.com/yuhei1012/lecture/blob/8213472f6270982bc4ab4166f2e255766554bd0b/lecture05_ELB%E8%BF%BD%E5%8A%A0.md)
