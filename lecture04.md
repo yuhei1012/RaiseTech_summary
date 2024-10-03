@@ -41,25 +41,22 @@
 キーペア作成の際に記号を入れてしまい認証が上手く行かなかった。再度インスタンスから作成し、記号を除いたキーペアを作成し解決
 　ダウンロードしたpemファイルを使用する
 
-参考サイト
+### 参考サイト
 
-パスの表示参考
-https://tcd-theme.com/2020/11/mac-file-path.html
+- [パスの表示参考](https://tcd-theme.com/2020/11/mac-file-path.html)
 
-　接続に関するサイト
-https://zenn.dev/valentiiii46/articles/dd87b085782bd5
+- [接続に関するサイト](https://zenn.dev/valentiiii46/articles/dd87b085782bd5)
 
 
 ・EC2からRDSへの接続
 
 <img width="857" alt="スクリーンショット 2022-11-12 10 34 32" src="https://user-images.githubusercontent.com/102453302/201451652-313453f2-aeda-4963-be49-a60f5f9f0d4a.png">
 
+- [参考サイト](https://qiita.com/OPySPGcLYpJE0Tc/items/0fc95a6b865f6bb89179)
 
-参考サイト
 
-https://qiita.com/OPySPGcLYpJE0Tc/items/0fc95a6b865f6bb89179
 
-・躓きポイント
+#### 躓きポイント
 
 mysqlに接続できずに何回もエラーが出てしまったが原因はRDSの設定項目の中の「マスターパスワード確認」という項目が空白であったこと
 初歩的な原因で何日も彷徨ってしまった
