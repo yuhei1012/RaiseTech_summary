@@ -6,11 +6,9 @@ Amazon Linux2で作成した所うまくいった。
 
 ## serverspecのインストール
 
-#### severspecのTopページ
- https://serverspec.org/
+#### [severspecのTopページ](https://serverspec.org/)
 
-#### 他インストール参照
-https://qiita.com/hitomatagi/items/12f9f10ff8e95dbe0999
+#### [他インストール参照](https://qiita.com/hitomatagi/items/12f9f10ff8e95dbe0999)
 
 $ serverspec-initコマンド実行
 
@@ -93,9 +91,8 @@ sshを接続する時は下記のように複数のインスタンスで実す�
 
 
 
-### chatgptのやり取り
 
-https://chatgpt.com/g/g-PGPnMa4Ph-ri-ben-yu-rokuin/c/ccfec11d-1d21-4114-af93-38c9bb7be0e9
+### [chatgptのやり取り](https://chatgpt.com/g/g-PGPnMa4Ph-ri-ben-yu-rokuin/c/ccfec11d-1d21-4114-af93-38c9bb7be0e9)
 
-## その他　githubのプロテクションルールについて
-https://zenn.dev/ukigumo_shiina3/articles/a862dc23b36cf0
+### その他
+#### [githubのプロテクションルールについて](https://zenn.dev/ukigumo_shiina3/articles/a862dc23b36cf0)
