@@ -83,9 +83,7 @@ S3バケットに個人情報やクレジットカード番号など機密情報
 
 等のリスクが考えられる
 
-- DDos攻撃について
-＊　https://www.stylez.co.jp/columns/ddos_prevention_in_aws/
+- [DDos攻撃について](https://www.stylez.co.jp/columns/ddos_prevention_in_aws/)
 
-- その他の脅威
-https://kurojica.com/server/blog/3176/
+- [その他の脅威](https://kurojica.com/server/blog/3176/)
 
