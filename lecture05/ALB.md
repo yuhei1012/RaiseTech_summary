@@ -29,5 +29,4 @@ https://zenn.dev/tikka/articles/6109990725a0f417d058
 設定後にnginxとunicornを再起動してみたらhealthyとなり解消した
 *再起動をしないでエラーコードを延々調べて時間を要してしまった。
 
-
-lecture05_ELB追加.md
+https://github.com/yuhei1012/RaiseTech_summary/blob/1e5a1de4080787e78ba4687c3b9540e6987ceb9a/lecture05_ELB%E8%BF%BD%E5%8A%A0.md
