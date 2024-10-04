@@ -16,7 +16,7 @@ Resources:
       Engine: mysql
       EngineVersion: 8.0.34
       MasterUsername: admin
-      MasterUserPassword: '{{resolve:secretsmanager:db/password:SecretString:RDSPASSWORD}}'
+      MasterUserPassword: '{{resolve:secretsmanager:db/password:SecretString:RDSPASSWORD}}' # CircleCiの環境変数に追加するか、Secret Mnagerに追記する。環境変数に追加がベター。
       DBInstanceClass: db.t4g.micro
       VPCSecurityGroups:
         - Ref: testMyDBSecurityGroup
