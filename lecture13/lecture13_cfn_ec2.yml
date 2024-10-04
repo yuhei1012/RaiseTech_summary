@@ -77,10 +77,10 @@ Outputs:
     Export:
       Name: SecurityGroupEC2
   lecture13a:
-    Value: !Ref lecture13a
+    Value: !Ref TestA
     Export:
-      Name: lecture13a
+      Name: TestA
   lecture13:
-    Value: !Ref lecture13b
+    Value: !Ref TestB
     Export:
-      Name: lecture13b
+      Name: TestB
