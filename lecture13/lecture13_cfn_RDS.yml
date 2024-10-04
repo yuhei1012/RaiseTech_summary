@@ -30,7 +30,7 @@ Resources:
       EngineVersion: 8.0.34
       MasterUsername: admin
       # Secrets Managerからパスワードを取得
-      MasterUserPassword: '{{resolve:secretsmanager:db/password:SecretString:password}}'  # MySecretで生成されたシークレットを使用
+      MasterUserPassword: '{{resolve:secretsmanager:testdbpasswaord:SecretString:password}}'  # MySecretで生成されたシークレットを使用
       DBInstanceClass: db.t4g.micro
       VPCSecurityGroups:
         - Ref: testMyDBSecurityGroup
