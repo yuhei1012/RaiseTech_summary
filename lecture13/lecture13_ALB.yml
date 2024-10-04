@@ -42,7 +42,7 @@ Resources:
       Port: 80
       Protocol: HTTP
       Targets:
-        - Id: !ImportValue  lecture13b
+        - Id: !ImportValue  TestB
           Port: 80
       VpcId: !ImportValue SampleVPC
       HealthCheckProtocol: HTTP
