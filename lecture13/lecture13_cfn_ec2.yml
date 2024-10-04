@@ -25,7 +25,7 @@ Resources:
       ImageId: ami-04187878432a16ba9   
       Tags:
         - Key: Name
-          Value: lecture13a
+          Value: TestA
       KeyName: t123456
       IamInstanceProfile: lecture13
 
@@ -41,7 +41,7 @@ Resources:
       ImageId: ami-04187878432a16ba9
       Tags:
         - Key: Name
-          Value: lecture13b
+          Value: TestB
       KeyName: t123456
 
   SecurityGroupEC2:
