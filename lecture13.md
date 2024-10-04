@@ -43,6 +43,8 @@ Pumaブラウザアクセスエラー
 ![imag](lecture13/lecture13/Pumaエラー時_ブラウザアクセス.png)
 
 Puma起動成功
+
+
 ![img](lecture13/lecture13/Puma起動成功.png)
 
 - アプリケーションをブラウザからアクセスした時画像が表示されない
