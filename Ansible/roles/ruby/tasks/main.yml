@@ -61,7 +61,6 @@
   ansible.builtin.yum:
     name: nodejs
     state: present
-    become: yes
 
 - name: Check if yarn is installed
   ansible.builtin.command: "yarn -v"
