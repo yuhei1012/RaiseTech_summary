@@ -39,6 +39,9 @@ development.rb、puma.rb、puma.serviceこの内のどれかに問題がある�
 "config.active_storage.variant_processor = :mini_magick"をapplication.rbに追記し
 RAILS_ENV=development bundle exec rails assets:precompileを実行する構文にすること。
 precompileを実行するコマンドがないとapplication.rbに記述されなかった。
+必要な記述と更新ができないとブラウザからアクセスすると下記のようになる。
+
+![ブラウザからアクセスした時アプリケーションが表示されない](lecture13/lecture13/Railsアプリケーション画像表示エラー.png)
 
 
 - Serverspecの項目では.ssh/configの設定が以前の課題のものになっておりssh接続でのエラーが出続けた。
