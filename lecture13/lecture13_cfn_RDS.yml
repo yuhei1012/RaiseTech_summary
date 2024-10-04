@@ -12,7 +12,7 @@ Resources:
   MySecret:
     Type: AWS::SecretsManager::Secret
     Properties: 
-      Name: db/password
+      Name: testdbpasswaord
       Description: "RDS master password"
       GenerateSecretString: 
         SecretStringTemplate: '{"username":"admin"}'  # ユーザー名を含めることができます
