@@ -8,6 +8,19 @@ Parameters:
     Default: testdbinstance
 
 Resources:
+  # Secrets Managerでシークレットを作成するリソース
+  MySecret:
+    Type: AWS::SecretsManager::Secret
+    Properties: 
+      Name: db/password
+      Description: "RDS master password"
+      GenerateSecretString: 
+        SecretStringTemplate: '{"username":"admin"}'  # ユーザー名を含めることができます
+        GenerateStringKey: "password"  # パスワード部分を自動生成
+        PasswordLength: 16  # パスワードの長さを指定
+        ExcludeCharacters: '"@/\'  # 除外したい文字（例: 特殊文字を制限したい場合）
+
+  # RDSインスタンスのリソース
   testDBInstance:
     Type: AWS::RDS::DBInstance
     Properties:
@@ -16,7 +29,8 @@ Resources:
       Engine: mysql
       EngineVersion: 8.0.34
       MasterUsername: admin
-      MasterUserPassword: '{{resolve:secretsmanager:db/password:SecretString:RDSPASSWORD}}' # CircleCiの環境変数に追加するか、Secret Mnagerに追記する。環境変数に追加がベター。
+      # Secrets Managerからパスワードを取得
+      MasterUserPassword: '{{resolve:secretsmanager:db/password:SecretString:password}}'  # MySecretで生成されたシークレットを使用
       DBInstanceClass: db.t4g.micro
       VPCSecurityGroups:
         - Ref: testMyDBSecurityGroup
@@ -27,6 +41,7 @@ Resources:
       MultiAZ: false
       DBSubnetGroupName: !Ref MyDBSubnetGroup
 
+  # セキュリティグループのリソース
   testMyDBSecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
@@ -36,12 +51,14 @@ Resources:
         - IpProtocol: tcp
           FromPort: 3306
           ToPort: 3306
-          CidrIp: 0.0.0.0/0
+          CidrIp: 0.0.0.0/0  # すべてのIPからのアクセスを許可（実運用では制限が推奨されます）
 
+  # DB Subnetグループのリソース
   MyDBSubnetGroup:
     Type: AWS::RDS::DBSubnetGroup
     Properties:
       DBSubnetGroupDescription: My DB Subnet Group
       SubnetIds:
-        - !ImportValue PrivateSubnet1a
+        - !ImportValue PrivateSubnet1a  # 既存のプライベートサブネットを参照
         - !ImportValue PrivateSubnet1c
+
