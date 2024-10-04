@@ -35,6 +35,9 @@
 Pumaが起動しないのは自分の経験上ファイル構文に問題がある場合が多い。大抵はそこを修正すると動く。
 development.rb、puma.rb、puma.serviceこの内のどれかに問題がある。
 
+Pumaブラウザアクセスエラー
+![imag](lecture13/lecture13/Pumaエラー時_ブラウザアクセス.png)
+
 - アプリケーションをブラウザからアクセスした時画像が表示されない
 "config.active_storage.variant_processor = :mini_magick"をapplication.rbに追記し
 RAILS_ENV=development bundle exec rails assets:precompileを実行する構文にすること。
