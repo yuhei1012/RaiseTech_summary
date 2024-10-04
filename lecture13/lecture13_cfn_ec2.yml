@@ -4,7 +4,7 @@ Description: ec2_template
 Parameters:
   InstanceType:
     Type: String
-    Default: t3.micro
+    Default: t3a.large
     AllowedValues:
       - t3a.large
       - t2.micro
