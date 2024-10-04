@@ -13,7 +13,7 @@ Parameters:
       - m1.large
 
 Resources:
-  lecture13a:
+  TestA:
     Type: AWS::EC2::Instance
     Properties:
       NetworkInterfaces:
@@ -29,7 +29,7 @@ Resources:
       KeyName: t123456
       IamInstanceProfile: lecture13
 
-  lecture13b:
+  TestB:
     Type: AWS::EC2::Instance
     Properties:
       NetworkInterfaces:
@@ -76,11 +76,11 @@ Outputs:
     Value: !Ref SecurityGroupEC2
     Export:
       Name: SecurityGroupEC2
-  lecture13a:
+  TestA:
     Value: !Ref TestA
     Export:
       Name: TestA
-  lecture13:
+  TestB:
     Value: !Ref TestB
     Export:
       Name: TestB
