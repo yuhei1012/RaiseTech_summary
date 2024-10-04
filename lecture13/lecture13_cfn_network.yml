@@ -44,7 +44,7 @@ Resources:
       CidrBlock: 10.0.3.0/24
       MapPublicIpOnLaunch: true
       AvailabilityZone: !Select         #
-        - 1                            # <= Correct!
+        - 2                            # <= Correct!
         - Fn::GetAZs: !Ref AWS::Region  #
       Tags:
       - Key: Name
@@ -55,7 +55,7 @@ Resources:
       VpcId: !Ref SampleVPC
       CidrBlock: 10.0.2.0/24
       AvailabilityZone:  !Select         #
-        - 1                            # <= Correct!
+        - 2                            # <= Correct!
         - Fn::GetAZs: !Ref AWS::Region  #
       Tags:
       - Key: Name
