@@ -4,6 +4,8 @@
 
 - CircleCiを使用しCFnでリソースを作成、作成されたリソースにAnsibleでRails環境とアプリケーションのセットアップ、最後にserverspecでテストを実行する構成となる。
 
+- アクセスキーやパスワードの記述が必要になるためセキュリティ、ハードコーティングの観点からCircleCiのEnvironment Variables(環境変数)機能は必須となる。
+
 
 ### CircleCiでの作成画面
 
