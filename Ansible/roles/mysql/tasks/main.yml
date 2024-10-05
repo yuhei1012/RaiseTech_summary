@@ -47,6 +47,25 @@
   become: yes
   command: ldconfig
 
+  
+- name: Ensure .bundle directory has correct permissions
+  ansible.builtin.file:
+    path: /var/sample-app/raisetech-live8-sample-app/.bundle
+    state: directory
+    owner: ec2-user  # 実行するユーザーに合わせて変更
+    group: ec2-user  # 実行するユーザーに合わせて変更
+    mode: '0755'
+
+- name: Ensure rbenv gem cache directory has correct permissions
+  ansible.builtin.file:
+    path: /usr/local/rbenv/versions/3.2.3/lib/ruby/gems/3.2.0/cache
+    state: directory
+    owner: ec2-user  # 実行するユーザーに合わせて変更
+    group: ec2-user  # 実行するユーザーに合わせて変更
+    mode: '0755'
+    recurse: yes
+
+
 - name: Install mysql2 gem with bundler
   become: yes  # `ec2-user` で実行する場合は become_user を指定
   become_user: ec2-user
