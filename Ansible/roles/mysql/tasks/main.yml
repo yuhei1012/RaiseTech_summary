@@ -1,73 +1,53 @@
 ---
 
 - name: remove the MariaDB
-  become: yes  # これによりroot権限で実行
+  become_user: root
   yum:
     name: mariadb-*
     state: absent
 
 - name: Import MySQL GPG key
-  become: yes
+  become_user: root
   shell: rpm --import "https://repo.mysql.com/RPM-GPG-KEY-mysql-2023"
   args:
     creates: /var/lib/mysql/mysql80-community-release-el7-7.noarch.rpm
 
 - name: install the mysql rpm from a remote repo
-  become: yes
+  become_user: root
   yum:
     name: 'https://repo.mysql.com//mysql80-community-release-el7-7.noarch.rpm'
     state: present
 
 - name: install mysql-community-server
-  become: yes
+  become_user: root
   yum: 
     name: mysql-community-server
     state: present
 
 - name: install mysql-community-devel
-  become: yes
+  become_user: root
   yum: 
     name: mysql-community-devel
     state: present
 
 - name: Ensure MySQL client libraries are installed
-  become: yes
+  become_user: root
   yum:
     name: mysql-community-libs
     state: present
 
 - name: Set MySQL library path
-  become: yes
+  become_user: root
   lineinfile:
     path: /etc/environment
     line: 'LD_LIBRARY_PATH=/usr/lib64/mysql:$LD_LIBRARY_PATH'
     create: yes
 
 - name: Run ldconfig to update library paths
-  become: yes
+  become_user: root
   command: ldconfig
 
-  
-- name: Ensure .bundle directory has correct permissions
-  ansible.builtin.file:
-    path: /var/sample-app/raisetech-live8-sample-app/.bundle
-    state: directory
-    owner: ec2-user  # 実行するユーザーに合わせて変更
-    group: ec2-user  # 実行するユーザーに合わせて変更
-    mode: '0755'
-
-- name: Ensure rbenv gem cache directory has correct permissions
-  ansible.builtin.file:
-    path: /usr/local/rbenv/versions/3.2.3/lib/ruby/gems/3.2.0/cache
-    state: directory
-    owner: ec2-user  # 実行するユーザーに合わせて変更
-    group: ec2-user  # 実行するユーザーに合わせて変更
-    mode: '0755'
-    recurse: yes
-
-
 - name: Install mysql2 gem with bundler
-  become: yes  # `ec2-user` で実行する場合は become_user を指定
   become_user: ec2-user
   shell: |
     export PATH="/usr/local/rbenv/bin:$PATH"
@@ -79,13 +59,12 @@
     executable: /bin/bash
 
 - name: Start MySQL service
-  become: yes
+  become_user: root
   service:
     name: mysqld
     state: started
 
 - name: Copy database.yml template
-  become: yes
   ansible.builtin.template:
     src: database.yml.j2
     dest: /var/sample-app/raisetech-live8-sample-app/config/database.yml
