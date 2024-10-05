@@ -62,31 +62,24 @@
     name: nodejs
     state: present
 
-# yarnのバージョンを変数で指定 (もし必要なら)
-- name: Set yarn version
-  set_fact:
-    yarn_version: "1.22.19"  # 例: 任意のバージョンを指定
-
-- name: Check if yarn is installed
-  ansible.builtin.command: "yarn -v"
+- name: check if yarn is installed
+  ansible.builtin.shell: bash -lc "yarn -v"
   register: check_yarn
   changed_when: no
   ignore_errors: yes
+  become: no
 
-- name: Install yarn globally if not installed
-  shell: |
-    if ! yarn -v; then
-      npm install --global yarn@{{ yarn_version | default('latest') }};
-    fi
-  when: check_yarn.rc != 0
-  become: yes
+- name: install yarn
+  shell: npm install --global yarn@{{ yarn_version }}
+  become: no
+  when: check_yarn is failed
 
-- name: Run yarn in project directory
-  shell: yarn install
+- name: yarn add yarn
+  shell: yarn add yarn
   args:
     chdir: /home/{{ ansible_user }}/raisetech-live8-sample-app
   become: no
-  when: check_yarn.rc == 0
+  when: check_yarn is failed
 
 - name: Check if there are local modifications in the repository
   command: git status --porcelain
