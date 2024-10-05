@@ -99,6 +99,13 @@
   ignore_errors: true
 
 
+- name: Check if there are local modifications in the repository
+  command: git status --porcelain
+  args:
+    chdir: /var/sample-app/raisetech-live8-sample-app
+  register: git_status
+  ignore_errors: true
+
 
 
 - name: Check if Ruby is installed
