@@ -48,15 +48,16 @@
   command: ldconfig
 
 # 追記分
-- name: Ensure rbenv gems directory has correct permissions
+- name: Ensure rbenv directory has correct permissions
   ansible.builtin.file:
-    path: /usr/local/rbenv/versions/3.2.3/lib/ruby/gems/3.2.0/gems
+    path: /usr/local/rbenv/versions/3.2.3
     state: directory
+    owner: ec2-user  # 必要に応じて変更
+    group: ec2-user  # 必要に応じて変更
     mode: '0755'
-    owner: ec2-user  # このユーザーで操作を行う場合
-    group: ec2-user  # ユーザーに合わせて変更
     recurse: yes
   become: yes
+
   
 # become: yes追記
 - name: Install mysql2 gem with bundler
