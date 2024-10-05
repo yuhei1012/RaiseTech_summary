@@ -1,11 +1,11 @@
 ---
 # tasks file for roles/ruby
+
 - name: Install Git
   ansible.builtin.yum:
     name: git
     state: present
     lock_timeout: 180
-
 
 - name: Install dependencies packages for ruby
   become: yes
@@ -17,7 +17,7 @@
       - gcc-c++
       - glibc-headers
       - openssl-devel
-      -  readline
+      - readline
       - libyaml-devel
       - readline-devel
       - zlib
@@ -48,10 +48,7 @@
 - name: Set global ruby version
   shell: bash -lc "rbenv global 3.2.3"
 
-
-
-# yarn,node,gitclone追加
-
+# yarn, node, gitclone追加
 
 - name: Add NodeSource repository
   shell: curl -sL https://rpm.nodesource.com/setup_16.x | bash -
@@ -74,12 +71,11 @@
   become: no
   when: check_yarn is failed
 
-- name: yarn add yarn
-  shell: yarn add yarn
-  args:
-    chdir: /home/{{ ansible_user }}/raisetech-live8-sample-app
-  become: no
-  when: check_yarn is failed
+- name: Ensure the application directory exists
+  ansible.builtin.file:
+    path: /var/sample-app/raisetech-live8-sample-app
+    state: directory
+    mode: '0755'
 
 - name: Check if there are local modifications in the repository
   command: git status --porcelain
@@ -95,18 +91,8 @@
     version: master
     force: no
     update: yes
-  when: git_status.stdout == ''
+  when: git_status is not defined or git_status.stdout == ''
   ignore_errors: true
-
-
-- name: Check if there are local modifications in the repository
-  command: git status --porcelain
-  args:
-    chdir: /var/sample-app/raisetech-live8-sample-app
-  register: git_status
-  ignore_errors: true
-
-
 
 - name: Check if Ruby is installed
   ansible.builtin.stat:
@@ -126,3 +112,4 @@
     - rbenv-rehash
     - bundler -v '{{ bundler_version }}'
     - rails -v '{{ rails_version }}'
+
