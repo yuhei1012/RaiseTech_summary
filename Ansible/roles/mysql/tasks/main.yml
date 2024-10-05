@@ -48,6 +48,7 @@
   command: ldconfig
 
 - name: Install mysql2 gem with bundler
+  become: yes  # `ec2-user` で実行する場合は become_user を指定
   become_user: ec2-user
   shell: |
     export PATH="/usr/local/rbenv/bin:$PATH"
@@ -57,7 +58,6 @@
   args:
     chdir: /var/sample-app/raisetech-live8-sample-app
     executable: /bin/bash
-  become: yes  # 修正：全角スペースから半角スペースに変更
 
 - name: Start MySQL service
   become_user: root
