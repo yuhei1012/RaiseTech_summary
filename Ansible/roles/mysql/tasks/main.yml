@@ -47,7 +47,21 @@
   become_user: root
   command: ldconfig
 
+　# 追記分
+- name: Ensure rbenv gems directory has correct permissions
+  ansible.builtin.file:
+    path: /usr/local/rbenv/versions/3.2.3/lib/ruby/gems/3.2.0/gems
+    state: directory
+    mode: '0755'
+    owner: ec2-user  # このユーザーで操作を行う場合
+    group: ec2-user  # ユーザーに合わせて変更
+    recurse: yes
+  become: yes
+  
+
+# become: yes追記
 - name: Install mysql2 gem with bundler
+  become: yes
   become_user: ec2-user
   shell: |
     export PATH="/usr/local/rbenv/bin:$PATH"
@@ -57,6 +71,8 @@
   args:
     chdir: /var/sample-app/raisetech-live8-sample-app
     executable: /bin/bash
+
+
 
 - name: Start MySQL service
   become_user: root
