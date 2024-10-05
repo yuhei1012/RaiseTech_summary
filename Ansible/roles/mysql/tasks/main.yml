@@ -57,7 +57,7 @@
   args:
     chdir: /var/sample-app/raisetech-live8-sample-app
     executable: /bin/bash
-  become:　yes
+  become: yes  # 修正：全角スペースから半角スペースに変更
 
 - name: Start MySQL service
   become_user: root
@@ -72,4 +72,5 @@
     owner: ec2-user
     group: ec2-user
     mode: '0644'
+
     
