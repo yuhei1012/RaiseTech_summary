@@ -62,6 +62,11 @@
     name: nodejs
     state: present
 
+# yarnのバージョンを変数で指定 (もし必要なら)
+- name: Set yarn version
+  set_fact:
+    yarn_version: "1.22.19"  # 例: 任意のバージョンを指定
+
 - name: Check if yarn is installed
   ansible.builtin.command: "yarn -v"
   register: check_yarn
@@ -69,7 +74,10 @@
   ignore_errors: yes
 
 - name: Install yarn globally if not installed
-  shell: npm install --global yarn@{{ yarn_version }}
+  shell: |
+    if ! yarn -v; then
+      npm install --global yarn@{{ yarn_version | default('latest') }};
+    fi
   when: check_yarn.rc != 0
   become: yes
 
