@@ -1,53 +1,53 @@
 ---
 
 - name: remove the MariaDB
-  become_user: root
+  become: yes
   yum:
     name: mariadb-*
     state: absent
 
 - name: Import MySQL GPG key
-  become_user: root
+  become: yes
   shell: rpm --import "https://repo.mysql.com/RPM-GPG-KEY-mysql-2023"
   args:
     creates: /var/lib/mysql/mysql80-community-release-el7-7.noarch.rpm
 
 - name: install the mysql rpm from a remote repo
-  become_user: root
+  become: yes
   yum:
     name: 'https://repo.mysql.com//mysql80-community-release-el7-7.noarch.rpm'
     state: present
 
 - name: install mysql-community-server
-  become_user: root
+  become: yes
   yum: 
     name: mysql-community-server
     state: present
 
 - name: install mysql-community-devel
-  become_user: root
+  become: yes
   yum: 
     name: mysql-community-devel
     state: present
 
 - name: Ensure MySQL client libraries are installed
-  become_user: root
+  become: yes
   yum:
     name: mysql-community-libs
     state: present
 
 - name: Set MySQL library path
-  become_user: root
+  become: yes
   lineinfile:
     path: /etc/environment
     line: 'LD_LIBRARY_PATH=/usr/lib64/mysql:$LD_LIBRARY_PATH'
     create: yes
 
 - name: Run ldconfig to update library paths
-  become_user: root
+  become: yes
   command: ldconfig
 
-　# 追記分
+# 追記分
 - name: Ensure rbenv gems directory has correct permissions
   ansible.builtin.file:
     path: /usr/local/rbenv/versions/3.2.3/lib/ruby/gems/3.2.0/gems
@@ -58,7 +58,6 @@
     recurse: yes
   become: yes
   
-
 # become: yes追記
 - name: Install mysql2 gem with bundler
   become: yes
@@ -72,10 +71,8 @@
     chdir: /var/sample-app/raisetech-live8-sample-app
     executable: /bin/bash
 
-
-
 - name: Start MySQL service
-  become_user: root
+  become: yes
   service:
     name: mysqld
     state: started
@@ -87,6 +84,7 @@
     owner: ec2-user
     group: ec2-user
     mode: '0644'
+
 
 
     
