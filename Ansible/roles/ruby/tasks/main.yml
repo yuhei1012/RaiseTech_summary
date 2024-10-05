@@ -71,7 +71,7 @@
   become: no
   when: check_yarn is failed
 
-- ---
+- 
 # Ensure the application directory exists
 - name: Ensure the application directory exists
   ansible.builtin.file:
