@@ -71,28 +71,33 @@
   become: no
   when: check_yarn is failed
 
+- ---
+# Ensure the application directory exists
 - name: Ensure the application directory exists
   ansible.builtin.file:
     path: /var/sample-app/raisetech-live8-sample-app
     state: directory
-    mode: '0755'
 
+# Check if directory is a valid git repository
 - name: Check if there are local modifications in the repository
   command: git status --porcelain
   args:
     chdir: /var/sample-app/raisetech-live8-sample-app
   register: git_status
   ignore_errors: true
+  failed_when: git_status.rc != 0 and git_status.stderr.find("not a git repository") == -1
 
+# Clone the repository if it does not exist or is not valid
 - name: Clone Rails Application Repository
   ansible.builtin.git:
     repo: 'https://github.com/yuta-ushijima/raisetech-live8-sample-app.git'
     dest: /var/sample-app/raisetech-live8-sample-app
-    version: master
-    force: no
+    version: main  # masterではなくmainに変更
+    force: yes
     update: yes
-  when: git_status is not defined or git_status.stdout == ''
-  ignore_errors: true
+  when: git_status.rc != 0
+
+
 
 - name: Check if Ruby is installed
   ansible.builtin.stat:
