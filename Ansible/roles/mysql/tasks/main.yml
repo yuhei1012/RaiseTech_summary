@@ -57,6 +57,7 @@
   args:
     chdir: /var/sample-app/raisetech-live8-sample-app
     executable: /bin/bash
+  become:yes
 
 - name: Start MySQL service
   become_user: root
