@@ -4,10 +4,11 @@
 - name: Install Puma gem
   ansible.builtin.shell: |
     source /etc/profile.d/rbenv.sh
-    gem install puma
+    gem install puma --no-document
   args:
     executable: /bin/bash
   tags: puma
+
 
 - name: Create Puma configuration file
   ansible.builtin.template:
