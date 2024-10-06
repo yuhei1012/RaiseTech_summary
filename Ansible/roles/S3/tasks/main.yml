@@ -21,6 +21,15 @@
   tags: S3
 
      #S3の画像表示に必要な構文
+
+- name: Ensure correct ownership and permissions for application.rb
+  ansible.builtin.file:
+    path: /var/sample-app/raisetech-live8-sample-app/config/application.rb
+    owner: ec2-user
+    group: ec2-user
+    mode: '0644'
+  tags: S3
+
 - name: Add mini_magick variant processor to application.rb
   lineinfile:
     path: /var/sample-app/raisetech-live8-sample-app/config/application.rb
