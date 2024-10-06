@@ -86,6 +86,16 @@
     group: ec2-user
     mode: '0644'
 
+- name: Run db:create to setup the database
+  become: yes
+  become_user: ec2-user
+  shell: |
+    export PATH="/usr/local/rbenv/bin:$PATH"
+    eval "$(rbenv init -)"
+    bin/rails db:create
+  args:
+    chdir: /var/sample-app/raisetech-live8-sample-app
+    executable: /bin/bash
 
 
     
