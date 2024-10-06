@@ -26,6 +26,7 @@
     path: /var/sample-app/raisetech-live8-sample-app/config/application.rb
     regexp: '^ *config.active_storage.variant_processor'
     line: "config.active_storage.variant_processor = :mini_magick"
+    insertafter: '^ *class Application'  # 追記場所を明示する
     backrefs: yes
   tags: S3
 
