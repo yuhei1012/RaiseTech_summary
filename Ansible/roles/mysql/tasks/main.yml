@@ -86,6 +86,31 @@
     group: ec2-user
     mode: '0644'
 
+- name: Ensure log directory exists and has correct permissions
+  file:
+    path: /var/sample-app/raisetech-live8-sample-app/log
+    state: directory
+    owner: deploy_user # 適切なユーザー名に変更してください
+    group: deploy_user # 適切なグループに変更してください
+    mode: '0755'
+
+- name: Ensure development.log exists and has correct permissions
+  file:
+    path: /var/sample-app/raisetech-live8-sample-app/log/development.log
+    state: touch
+    owner: deploy_user # 適切なユーザー名に変更してください
+    group: deploy_user # 適切なグループに変更してください
+    mode: '0664'
+
+- name: Ensure db/schema.rb exists and has correct permissions
+  file:
+    path: /var/sample-app/raisetech-live8-sample-app/db/schema.rb
+    state: touch
+    owner: deploy_user # 適切なユーザー名に変更してください
+    group: deploy_user # 適切なグループに変更してください
+    mode: '0664'
+
+
 - name: Run db:create to setup the database
   become: yes
   become_user: ec2-user
