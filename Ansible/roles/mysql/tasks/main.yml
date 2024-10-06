@@ -97,5 +97,17 @@
     chdir: /var/sample-app/raisetech-live8-sample-app
     executable: /bin/bash
 
+    
+- name: Run db:migrate to apply pending migrations
+  become: yes
+  become_user: ec2-user
+  shell: |
+    export PATH="/usr/local/rbenv/bin:$PATH"
+    eval "$(rbenv init -)"
+    bin/rails db:migrate
+  args:
+    chdir: /var/sample-app/raisetech-live8-sample-app
+    executable: /bin/bash
+
 
     
