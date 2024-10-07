@@ -66,7 +66,7 @@
     group: ec2-user
     mode: '0644'
   vars:
-    host_name: "{{ lookup('env', 'AWS_DNS') }}"  # 環境変数AWS_DNSを使用
+    host_name: "{{ AWS_DNS }}"  # 環境変数AWS_DNSを使用
   tags: rails
 
 
