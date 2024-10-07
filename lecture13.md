@@ -127,6 +127,7 @@ ImageMagickのインストールやminimagickをGemfileに追加する構文も�
 - SSH_KEY_PATH(pemファイル名)
 - s3_bucket_name
 - .ssh/configのhost(ipアドレス)を変更すること
+  ＊今回はローカルにpemファイルをダウンロードしたのでローカルの.ssh/configを変更した。
 
   
 
