@@ -13,10 +13,7 @@
     puma_min_threads: 5
     rails_env: development
 
-    # Ansibleのplaybook内でDB_USERNAMEやDB_PASSWORD、DB_HOSTが未定義になって別途、環境変数を定義する必要がある。
-    DB_USERNAME: "{{ lookup('env', 'DB_USERNAME') }}"
-    DB_PASSWORD: "{{ lookup('env', 'DB_PASSWORD') }}"
-    DB_HOST: "{{ lookup('env', 'DB_HOST') }}"
+    
 
     # aws_region: "{{ lookup('env', 'AWS_REGION') | default('ap-northeast-1', true) }}" # 適宜変更
     # s3_bucket_name: "{{ lookup('env', 'S3_BUCKET_NAME') | default('lecture13', true) }}"  # 適宜変更
