@@ -40,6 +40,6 @@ module RaisetechLive8SampleApp
     config.generators.system_tests = nil
 
     # Add the mini_magick processor for Active Storage
-    config.active_storage.variant_processor = :mini_magick
+    config.active_storage.variant_processor = :mini_magick  # これがないと画像表示されない
   end
 end
