@@ -12,6 +12,7 @@
     puma_max_threads: 5
     puma_min_threads: 5
     rails_env: development
+    AWS_DNS: "{{ lookup('env', 'AWS_DNS') }}"  # 環境変数からAWS_DNSを取得
 
     
 
