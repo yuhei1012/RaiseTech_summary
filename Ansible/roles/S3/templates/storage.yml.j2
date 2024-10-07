@@ -1,7 +1,7 @@
 amazon:
   service: S3
-  region: "{{ AWS_REGION }}"
-  bucket: "{{ S3_BACKET_NAME }}"
+  region: "{{ lookup('env', 'AWS_REGION') }}
+  bucket: "{{ lookup('env', 'S3_BACKET_NAME') }}"
 
 local:
   service: Disk
