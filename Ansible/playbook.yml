@@ -13,8 +13,8 @@
     puma_min_threads: 5
     rails_env: development
     AWS_DNS: "{{ lookup('env', 'AWS_DNS') }}"  # 環境変数からAWS_DNSを取得
-    aws_region: "{{ lookup('env', 'AWS_DEFAULT_REGION') }}"
-    s3_bucket_name: "{{ lookup('env', 's3_bucket_name') }}"
+    aws_region: "{{ lookup('env', 'AWS_DEFAULT_REGION') }}"  # AWS_DEFAULT_REGION環境変数の取得
+    s3_bucket_name: "{{ lookup('env', 'S3_BUCKET_NAME') }}"  # S3_BUCKET_NAME環境変数の取得
    
 
     
