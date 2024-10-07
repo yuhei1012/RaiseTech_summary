@@ -1,7 +1,7 @@
 amazon:
   service: S3
-  region: 'ap-northeast-1'
-  bucket: 'lecture13'
+  region: ""{{AWS_DEFAULT_REGION}}"
+  bucket: ""{{s3_bucket_name}}"
 
 local:
   service: Disk
