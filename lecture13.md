@@ -134,7 +134,33 @@ ImageMagickのインストールやminimagickをGemfileに追加する構文も�
 - templaetsファイルはvarsを使用していないので下記のような形式で直接CircleCiから環境変数を定義している。
 
 ````
-   "{{ lookup('env', 'DB_USERNAME') }}"
+S3_storage.yml.j2
+
+amazon:
+  service: S3
+  region: "{{ lookup('env', 'AWS_REGION') }}
+  bucket: "{{ lookup('env', 'S3_BACKET_NAME') }}"
+
+local:
+  service: Disk
+  root: <%= Rails.root.join("storage") %>
+
+
+database.yml.j2
+
+default: &default
+  adapter: mysql2
+  encoding: utf8mb4
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: "{{ lookup('env', 'DB_USERNAME') }}"
+  password: "{{ lookup('env', 'DB_PASSWORD') }}"
+  host: "{{ lookup('env', 'DB_HOST') }}"
+
+development:
+  <<: *default
+  database: raisetech_live8_sample_app_development
+
+
 ````
 
 
