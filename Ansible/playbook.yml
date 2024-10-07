@@ -14,7 +14,8 @@
     rails_env: development
     AWS_DNS: "{{ lookup('env', 'AWS_DNS') }}"  # 環境変数からAWS_DNSを取得
     aws_region: "{{ lookup('env', 'AWS_DEFAULT_REGION') }}"
-    s3_bucket_name: "{{ lookup('env','s3_bucket_name') }}"
+    s3_bucket_name: "{{ lookup('env', 's3_bucket_name') }}"
+   
 
     
 
