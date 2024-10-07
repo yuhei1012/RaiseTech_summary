@@ -6,7 +6,7 @@
     dest: /var/sample-app/raisetech-live8-sample-app/config/storage.yml
   vars:
     aws_region: "{{ AWS_DEFAULT_REGION }}"
-    s3_bucket_name: "{{ s3_bucket_name }}"
+    s3_bucket_name: "{{ S3_BACKET_NAME }}"
   tags: S3
 
 
