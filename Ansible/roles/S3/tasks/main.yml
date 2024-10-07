@@ -30,14 +30,16 @@
     mode: '0644'
   tags: S3
 
-- name: Add mini_magick variant processor to application.rb
-  lineinfile:
-    path: /var/sample-app/raisetech-live8-sample-app/config/application.rb
-    regexp: '^ *config.active_storage.variant_processor'
-    line: "config.active_storage.variant_processor = :mini_magick"
-    insertafter: '^ *class Application'  # 追記場所を明示する
-    backrefs: yes
+  
+- name: Deploy application.rb from template
+  ansible.builtin.template:
+    src: application.rb.j2
+    dest: /var/sample-app/raisetech-live8-sample-app/config/application.rb
+    owner: ec2-user
+    group: ec2-user
+    mode: '0644'
   tags: S3
+
 
 
 
