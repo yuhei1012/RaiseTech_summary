@@ -101,7 +101,17 @@ ImageMagickのインストールやminimagickをGemfileに追加する構文も�
 ![img](lecture13/lecture13/構成図_lecture13_修正_S3.png)
 
 
+## CircleCiでAnsible、Serverspecまで実行する際の注意点
+このリポジトリーのファイルを引用して同じことをする際は以下の点を変更すること。
+- inventoryファイルのipアドレスを変更すること
+- EC2のPublic_IPアドレスを変更すること
+- S3のバケット名を変更すること。又は削除しておくこと。
+- CircleCiの環境変数を変更すること。
+  AWSアクセスキーやシークレットアクセスキーを新たに作成、登録すること。
+  変更の必要がなければ同じものでも可。
+- .ssh/configのhost(ipアドレス)を変更すること
 
+  
 
 
 
