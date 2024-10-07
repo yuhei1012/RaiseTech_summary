@@ -112,7 +112,9 @@ ImageMagickのインストールやminimagickをGemfileに追加する構文も�
 ![img](lecture13/lecture13/環境変数登録_CircleCi.png)
 
 - RDSは環境変数にパスワードとDB名を登録しているので、CFnの作成が終了したら一度中断してパスワードとDB名をCircleCiに登録してから実行するとエラーは起こらない。
-  これは、RDSだけでなくEC2やS3に言えるのでCFn作成までのCircleCiに留めておき、必要な環境変数を登録したらDeploy～Testまでのワークフローにすると良い
+  これは、RDSだけでなくEC2やS3に言えるのでCFn作成までのCircleCiに留めておき、必要な環境変数を登録したらDeploy～Testまでのワークフローにすると良い。
+
+#### 環境変数を登録したので次回からはCircleCiの環境変数とSSH Keysを変更すれば自動でデプロイからテストまで実行できる。
   
 
 #### 今回登録した環境変数
@@ -125,9 +127,12 @@ ImageMagickのインストールやminimagickをGemfileに追加する構文も�
 - DB_PASSWORD
 - EC2_PUBLIC_IP
 - SSH_KEY_PATH(pemファイル名)
-- s3_bucket_name
+- S3_BACKET_NAME
+- AWS_REGION
 - .ssh/configのhost(ipアドレス)を変更すること
   ＊今回はローカルにpemファイルをダウンロードしたのでローカルの.ssh/configを変更した。
+- templaetsファイルはvarsを使用していないので下記のような形式で直接CircleCiから環境変数を定義している。
+   "{{ lookup('env', 'DB_USERNAME') }}"
 
   
 
