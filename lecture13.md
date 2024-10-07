@@ -49,14 +49,20 @@ Puma起動成功
 
 ![img](lecture13/lecture13/Puma起動成功.png)
 
-- アプリケーションをブラウザからアクセスした時画像が表示されない
+### アプリケーションをブラウザからアクセスした時画像が表示されない。
+
+  
 "config.active_storage.variant_processor = :mini_magick"をapplication.rbに追記し
 RAILS_ENV=development bundle exec rails assets:precompileを実行する構文にすること。
 precompileを実行するコマンドがないとapplication.rbに記述されなかった。
 playbookに直接記述するよりもテンプレート(development.rb.j2)を使用するのが有効であった。
-development.rbの記述にも注意が必要であった。
-config.active_storage.service = :amazon→表示される
-config.active_storage.service = :local→表示されない
+ImageMagickのインストールやminimagickをGemfileに追加する構文も必須である。
+
+##### development.rbの記述にも注意が必要であった。
+- config.active_storage.service = :amazon→表示される
+- config.active_storage.service = :local→表示されない
+
+ 
 必要な記述と更新ができないとブラウザからアクセスすると下記のようになる。
 
 ![ブラウザからアクセスした時アプリケーションが表示されない](lecture13/lecture13/Railsアプリケーション画像表示エラー.png)
