@@ -57,6 +57,7 @@
 
 
 # development.rbの設定タスク追加
+
 - name: Update development.rb with allowed hosts
   ansible.builtin.template:
     src: templates/development.rb.j2
@@ -65,8 +66,9 @@
     group: ec2-user
     mode: '0644'
   vars:
-    host_name: "{{AWS_DNS}}"  # ホスト名(パブリックDNS)をここに指定 適宜変更
+    host_name: "{{ lookup('env', 'AWS_DNS') }}"  # 環境変数AWS_DNSを使用
   tags: rails
+
 
 # 下記がsocketsを作成する項目
 
