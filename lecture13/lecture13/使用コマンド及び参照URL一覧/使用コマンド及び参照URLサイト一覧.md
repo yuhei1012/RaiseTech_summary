@@ -88,6 +88,7 @@ tal: [3.112.233.245]: FAILED! => {"changed": true, "cmd": "source /etc/profile.d
 - [serverspec2](https://qiita.com/minamijoyo/items/467ddd13c0cab15330bf)
 - [serverspec3](https://qiita.com/hitomatagi/items/956a8893aea6cb18a93f)
 - [Linuxポート疎通確認](https://qiita.com/WisteriaWave/items/1e86a9d9488ee777c0a3)
+- [アクセスキー、シークレットアクセスキーの作成](https://qiita.com/yamasakk/items/3060d22faeed8e05ebe4)
 
 
 
