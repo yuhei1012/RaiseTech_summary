@@ -132,9 +132,10 @@ ImageMagickのインストールやminimagickをGemfileに追加する構文も�
 - .ssh/configのhost(ipアドレス)を変更すること
   ＊今回はローカルにpemファイルをダウンロードしたのでローカルの.ssh/configを変更した。
 - templaetsファイルはvarsを使用していないので下記のような形式で直接CircleCiから環境変数を定義している。
-   "{{ lookup('env', 'DB_USERNAME') }}"
 
-  
+````
+   "{{ lookup('env', 'DB_USERNAME') }}"
+````
 
 
 
