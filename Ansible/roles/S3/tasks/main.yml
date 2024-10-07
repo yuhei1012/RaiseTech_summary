@@ -5,7 +5,7 @@
     src: storage.yml.j2
     dest: /var/sample-app/raisetech-live8-sample-app/config/storage.yml
   vars:
-    aws_region: "{{ AWS_DEFAULT_REGION }}"
+    aws_region: "{{ AWS_REGION }}"
     s3_bucket_name: "{{ S3_BACKET_NAME }}"
   tags: S3
 
