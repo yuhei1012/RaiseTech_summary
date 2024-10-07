@@ -109,6 +109,23 @@ ImageMagickのインストールやminimagickをGemfileに追加する構文も�
 - CircleCiの環境変数を変更すること。
   AWSアクセスキーやシークレットアクセスキーを新たに作成、登録すること。
   変更の必要がなければ同じものでも可。
+![img](lecture13/lecture13/環境変数登録_CircleCi.png)
+
+- RDSは環境変数にパスワードとDB名を登録しているので、CFnの作成が終了したら一度中断してパスワードとDB名をCircleCiに登録してから実行するとエラーは起こらない。
+  これは、RDSだけでなくEC2やS3に言えるのでCFn作成までのCircleCiに留めておき、必要な環境変数を登録したらDeploy～Testまでのワークフローにすると良い
+  
+
+#### 今回登録した環境変数
+- AWS_ACCESS_KEY_ID
+- AWS_SECRET_ACCESS_KEY
+- AWS_DEFAULT_REGION
+- AWS_DNS
+- DB_USERNAME
+- DB_HOST (これはRDSのエンドポイント)
+- DB_PASSWORD
+- EC2_PUBLIC_IP
+- SSH_KEY_PATH(pemファイル名)
+- s3_bucket_name
 - .ssh/configのhost(ipアドレス)を変更すること
 
   
