@@ -3,6 +3,7 @@
 - [CircleCiログイン画面](https://circleci.com/vcs-authorize/?lang=ja&returnTo=)
 
 - [使用したconfig.yml](.circleci/config.yml)
+- [Ansible実行フォルダ](Ansible)
 
   
 - CI/CDツールを使用してセットアップから構築、デプロイ、serverspecを使用してテスト実行までを自動化
