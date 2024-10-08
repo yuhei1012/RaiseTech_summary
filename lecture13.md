@@ -54,7 +54,7 @@ Puma起動成功
 
 ### アプリケーションをブラウザからアクセスした時画像が表示されない。
 
-  
+画像の保存先をAmazon S3にしている構成だがブラウザからアクセスした時に画像が表示されないことがある。
 "config.active_storage.variant_processor = :mini_magick"をapplication.rbに追記し
 RAILS_ENV=development bundle exec rails assets:precompileを実行する構文にすること。
 precompileを実行するコマンドがないとapplication.rbに記述されなかった。
@@ -123,6 +123,8 @@ ImageMagickのインストールやminimagickをGemfileに追加する構文も�
   
 
 #### 今回登録した環境変数
+
+CircleCiに環境変数を登録する際は大文字が基本となる。
 - AWS_ACCESS_KEY_ID
 - AWS_SECRET_ACCESS_KEY
 - AWS_DEFAULT_REGION
@@ -134,6 +136,8 @@ ImageMagickのインストールやminimagickをGemfileに追加する構文も�
 - SSH_KEY_PATH(pemファイル名)
 - S3_BACKET_NAME
 - AWS_REGION
+
+#### その他注意点
 - .ssh/configのhost(ipアドレス)を変更すること
   ＊今回はローカルにpemファイルをダウンロードしたのでローカルの.ssh/configを変更した。
 - templaetsファイルはvarsを使用していないので下記のような形式で直接CircleCiから環境変数を定義している。
