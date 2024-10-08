@@ -183,4 +183,12 @@ development:
 
 
 
+- その他
+
+  
+Githubプロテクションルール
+
+![img](lecture13/lecture13/Github_保護ルール.png)
+
+
 
