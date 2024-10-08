@@ -1,5 +1,8 @@
 # 第13回　CircleCiを活用した自動化
 
+- [CircleCiログイン画面](https://circleci.com/vcs-authorize/?lang=ja&returnTo=)
+
+  
 - CI/CDツールを使用してセットアップから構築、デプロイ、serverspecを使用してテスト実行までを自動化
 
 - CircleCiを使用しCFnでリソースを作成、作成されたリソースにAnsibleでRails環境とアプリケーションのセットアップ、最後にserverspecでテストを実行する構成となる。
@@ -58,7 +61,7 @@ precompileを実行するコマンドがないとapplication.rbに記述され�
 playbookに直接記述するよりもテンプレート(development.rb.j2)を使用するのが有効であった。
 ImageMagickのインストールやminimagickをGemfileに追加する構文も必須である。
 
-##### development.rbの記述にも注意が必要であった。
+##### development.rbの記述にも注意が必要である。
 - config.active_storage.service = :amazon→表示される
 - config.active_storage.service = :local→表示されない
 
@@ -89,8 +92,8 @@ ImageMagickのインストールやminimagickをGemfileに追加する構文も�
 以下のような流れとなる：
 
 1. GitHubにコードがプッシュされる: これがCircleCIのビルドプロセスをトリガーします。
-2. CircleCIがジョブを実行: CircleCI上のパイプラインの一環として、Ansibleが起動します。この時点で、CircleCIの環境（CircleCIのプロジェクト）自体がAnsibleのコントロールノードとして動作。
-3. Ansibleがターゲットノードに接続: CircleCI上のAnsibleは、設定されたEC2インスタンスにSSHなどを使って接続し、アプリケーションのセットアップや設定（NginxやRailsの構築）を行う。したがって、CircleCIのジョブがコントロールノードの役割を担い、EC2インスタンスがAnsibleの指示に従って構成されるという流れである。
+2. CircleCiがジョブを実行: CircleCi上のパイプラインの一環として、Ansibleが起動します。この時点で、CircleCiの環境（CircleCiのプロジェクト）自体がAnsibleのコントロールノードとして動作。
+3. Ansibleがターゲットノードに接続: CircleCi上のAnsibleは、設定されたEC2インスタンスにSSHなどを使って接続し、アプリケーションのセットアップや設定（NginxやRailsの構築）を行う。したがって、CircleCiのジョブがコントロールノードの役割を担い、EC2インスタンスがAnsibleの指示に従って構成されるという流れである。
 
 これにより、開発者は手動でEC2にログインして設定を行う必要がなくなり、コードがプッシュされるたびにCircleCIが自動的にインフラを構成・デプロイすることとなる。
 
@@ -106,9 +109,11 @@ ImageMagickのインストールやminimagickをGemfileに追加する構文も�
 - inventoryファイルのipアドレスを変更すること
 - EC2のPublic_IPアドレスを変更すること
 - S3のバケット名を変更すること。又は削除しておくこと。
-- CircleCiの環境変数を変更すること。
+- CircleCiの環境変数を変更すること
   AWSアクセスキーやシークレットアクセスキーを新たに作成、登録すること。
-  変更の必要がなければ同じものでも可。
+  変更の必要がなければ同じものでも可
+- .circleciフォルダのconfig.yml構文にあるCFnのパスやAnsibleのパスは適宜変更する
+  
 ![img](lecture13/lecture13/環境変数登録_CircleCi.png)
 
 - RDSは環境変数にパスワードとDB名を登録しているので、CFnの作成が終了したら一度中断してパスワードとDB名をCircleCiに登録してから実行するとエラーは起こらない。
@@ -132,6 +137,10 @@ ImageMagickのインストールやminimagickをGemfileに追加する構文も�
 - .ssh/configのhost(ipアドレス)を変更すること
   ＊今回はローカルにpemファイルをダウンロードしたのでローカルの.ssh/configを変更した。
 - templaetsファイルはvarsを使用していないので下記のような形式で直接CircleCiから環境変数を定義している。
+  
+region(テンプレート内の表記): "{{ lookup('env', 'CircleCiに登録した変数名') }}
+
+*'env',の隣は半角スペースを忘れないこと。ナミカッコ{}の前後も半角スペースを一つ空ける
 
 ````
 S3_storage.yml.j2
