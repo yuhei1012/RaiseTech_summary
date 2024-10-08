@@ -6,6 +6,7 @@
 - [Ansible実行フォルダ](Ansible)
 - [Serverspec実行フォルダ](serverspec)
 
+- [＊参考になったコマンド、参照URL](lecture13/lecture13/使用コマンド及び参照URL一覧)
   
 - CI/CDツールを使用してセットアップから構築、デプロイ、serverspecを使用してテスト実行までを自動化
 
