@@ -4,6 +4,7 @@
 
 - [使用したconfig.yml](.circleci/config.yml)
 - [Ansible実行フォルダ](Ansible)
+- [Serverspec実行フォルダ](serverspec)
 
   
 - CI/CDツールを使用してセットアップから構築、デプロイ、serverspecを使用してテスト実行までを自動化
